@@ -1,0 +1,75 @@
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+
+<h2>Find post:</h2>
+<form action="/search" method="get">
+    <div class="form-row">
+        <div class="form-group col-md-3">
+            <label for="fname">Find posts:</label><br>
+            <input type="text" id="fname" name="searchField" value="" class="form-control">
+            <label id="insertToSearchField" class="badge badge-success">insert</label><br>
+        </div>
+    </div>
+    <input type="submit" class="btn btn-primary" value="Search">
+</form>
+
+<label class="badge badge-dark">Finding posts:</label>
+<h2 th:utext="${searchField}" class="badge badge-secondary"/>
+
+
+<h2>Posts:</h2>
+<table class="table table-striped">
+    <thead class="thead-dark">
+    <tr>
+        <th scope="col">Title</th>
+        <th scope="col">Text</th>
+        <th scope="col">Delete</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="post: ${posts}">
+        <td th:text="${post.title}"/>
+        <td th:text="${post.text}"/>
+        <td>
+            <form action="/delete" method="get">
+                <input name="id" th:value="${post.id}" class="form-control" hidden>
+                <input type="submit" class="btn btn-danger" value="Submit">
+            </form>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<h2>Add post</h2>
+<form action="#" th:action="@{/search}" method="get">
+    <p>Id: <input type="text" th:text="searchField"/></p>
+    <p><input type="submit" value="Add"/> <input type="reset" value="Reset"/></p>
+</form>
+
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+
+<!--<th:block layout:fragment="script">-->
+<script th:src="@{/app.js}"></script>
+<!--</th:block>-->
+
+</body>
+</html>
