@@ -1,6 +1,6 @@
 FROM amazoncorretto:11
-CMD ls
-CMD ls /target
+CMD echo ls
+CMD echo ls /target
 ARG JAR_FILE=target/*.jar
 COPY ${JAR_FILE} app.jar
 ENTRYPOINT ["java","-jar","/app.jar"]
