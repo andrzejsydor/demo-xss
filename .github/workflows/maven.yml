@@ -28,22 +28,17 @@ jobs:
     - name: Build with Maven
       run: mvn -B package --file pom.xml
 
-  push:
 
-    runs-on: ubuntu-latest
-    if: github.event_name == 'push'
+    - uses: actions/checkout@v2
 
-    steps:
-      - uses: actions/checkout@v2
+    - name: Build image
+      run: docker build . --file Dockerfile --tag $IMAGE_NAME
 
-      - name: Build image
-        run: docker build . --file Dockerfile --tag $IMAGE_NAME
+    - name: Log into registry
+      run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u dockerworkshopsydor --password-stdin
 
-      - name: Log into registry
-        run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u dockerworkshopsydor --password-stdin
-
-      - name: Push image
-        run: |
+    - name: Push image
+      run: |
           # Strip git ref prefix from version
           VERSION=$(echo "${{ github.ref }}" | sed -e 's,.*/\(.*\),\1,')
           # Strip "v" prefix from tag name
