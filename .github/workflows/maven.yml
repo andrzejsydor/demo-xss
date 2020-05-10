@@ -29,8 +29,6 @@ jobs:
       run: mvn -B package --file pom.xml
 
 
-    - uses: actions/checkout@v2
-
     - name: Build image
       run: docker build . --file Dockerfile --tag $IMAGE_NAME
 
