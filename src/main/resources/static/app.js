@@ -12,4 +12,10 @@ $(document).ready(function () {
     });
 });
 
-document.getElementById("result").innerHTML = document.location.href.substring(document.location.href.indexOf("#") + 1);
+
+// let indexOf = document.location.href.indexOf("#");
+// if (indexOf > 0) {
+//     document.getElementById("result").innerHTML = document.location.href.substring(indexOf + 1);
+// } else {
+//     document.getElementById("result").innerHTML = 'XSS - Demo';
+// }

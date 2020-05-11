@@ -22,7 +22,7 @@ class HomeController {
         return "index";
     }
 
-    @GetMapping({"/"})
+    @GetMapping({"/dom"})
     String dom() {
         return "dom";
     }
@@ -30,7 +30,7 @@ class HomeController {
     @GetMapping("/search")
     String search(@RequestParam(required = false) String searchField, Model model) {
         model.addAttribute("searchField", searchField);
-        model.addAttribute("posts", postRepository.findAll());
+        model.addAttribute("posts", postRepository.findByTitleContains(searchField));
         return "index";
     }
 

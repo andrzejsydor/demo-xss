@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<body>
+<div th:fragment="navbar">
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+            <a class="navbar-brand" href="index">Home</a>
+            <a class="navbar-brand" href="form">Add Post</a>
+            <a class="navbar-brand" href="dom">DOM</a>
+        </nav>
+    </div>
+</div>
+
+<div th:fragment="navbarWithSearch">
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="navbar-brand" href="index">Home</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="navbar-brand" href="form">Add Post</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="navbar-brand" href="dom">DOM</a>
+                </li>
+            </ul>
+            <form action="/search" method="get" class="form-inline mt-2 mt-md-0">
+                <input id="fname" class="form-control mr-sm-2" type="text" name="searchField" placeholder="Search"
+                       aria-label="Search">
+                <button class="btn btn-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </nav>
+    </div>
+</div>
+</body>
+</html>
