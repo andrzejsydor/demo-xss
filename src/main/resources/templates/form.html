@@ -10,46 +10,16 @@
 </head>
 <body>
 
-<a href="/form">Add post</a>
+<h2>Add post</h2>
 
-<h2>Find post:</h2>
-<form action="/search" method="get">
-    <div class="form-row">
-        <div class="form-group col-md-3">
-            <label for="fname">Find posts:</label><br>
-            <input type="text" id="fname" name="searchField" value="" class="form-control">
-            <label id="insertToSearchField" class="badge badge-success">insert</label><br>
-        </div>
-    </div>
-    <input type="submit" class="btn btn-primary" value="Search">
+<form action="#" th:action="@{/add}" th:object="${post}" method="post">
+    <p>Id: <input type="text" th:field="*{id}" /></p>
+    <p>Title: <input type="text" th:field="*{title}" /></p>
+    <p>Text: <input id="fname" type="text" name="formField" th:field="*{text}" /></p>
+    <label id="insertToFormField" class="badge badge-success">insert</label><br>
+    <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
 </form>
 
-<label class="badge badge-dark">Finding posts:</label>
-<h2 th:utext="${searchField}" class="badge badge-secondary"/>
-
-
-<h2>Posts:</h2>
-<table class="table table-striped">
-    <thead class="thead-dark">
-    <tr>
-        <th scope="col">Title</th>
-        <th scope="col">Text</th>
-        <th scope="col">Delete</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="post: ${posts}">
-        <td th:utext="${post.title}"/>
-        <td th:utext="${post.text}"/>
-        <td>
-            <form action="/delete" method="get">
-                <input name="id" th:value="${post.id}" class="form-control" hidden>
-                <input type="submit" class="btn btn-danger" value="Delete">
-            </form>
-        </td>
-    </tr>
-    </tbody>
-</table>
 
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -63,9 +33,7 @@
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin="anonymous"></script>
 
-<!--<th:block layout:fragment="script">-->
 <script th:src="@{/app.js}"></script>
-<!--</th:block>-->
 
 </body>
 </html>
