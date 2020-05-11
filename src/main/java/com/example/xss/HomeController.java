@@ -22,6 +22,11 @@ class HomeController {
         return "index";
     }
 
+    @GetMapping({"/"})
+    String dom() {
+        return "dom";
+    }
+
     @GetMapping("/search")
     String search(@RequestParam(required = false) String searchField, Model model) {
         model.addAttribute("searchField", searchField);

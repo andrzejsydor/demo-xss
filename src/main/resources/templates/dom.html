@@ -10,16 +10,10 @@
 </head>
 <body>
 
-<h2>Add post</h2>
-
-<form action="#" th:action="@{/add}" th:object="${post}" method="post">
-    <p>Id: <input type="text" th:field="*{id}" /></p>
-    <p>Title: <input type="text" th:field="*{title}" /></p>
-    <p>Text: <input id="fname" type="text" name="formField" th:field="*{text}" /></p>
-    <label id="insertToFormField" class="badge badge-success">insert</label><br>
-    <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
-</form>
-
+<a href="/index">Add post</a>
+<h1>
+    <div id="result">XSS-Demo</div>
+</h1>
 
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->

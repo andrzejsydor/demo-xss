@@ -11,3 +11,5 @@ $(document).ready(function () {
         $("#fname").val("<script>alert(1)</script>");
     });
 });
+
+document.getElementById("result").innerHTML = document.location.href.substring(document.location.href.indexOf("#") + 1);
