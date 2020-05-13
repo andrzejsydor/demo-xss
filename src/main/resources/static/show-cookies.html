@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>Show all cookies</h1>
+<script>
+    var cookies = document.cookie.split(';');
+    console.log(`Cookie size ${cookies.length}`);
+    cookies.forEach(cookie => console.log(cookie));
+</script>
+
+</body>
+</html>
