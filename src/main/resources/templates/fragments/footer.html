@@ -6,6 +6,17 @@
     <footer class="container">
         <div id="result" class="navbar navbar-expand-lg navbar-dark bg-primary">
             <span class="text-muted">XSS - Demo</span>
+<!--            <a class="navbar-brand" href="show-cookies.html">Cookies</a>-->
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    XSS static content
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="show-cookies.html">Cookies</a>
+                    <a class="dropdown-item" href="inline.html">Inline</a>
+                    <a class="dropdown-item" href="inline-blocked-csp.html">CSP</a>
+                </div>
+            </div>
         </div>
     </footer>
 
