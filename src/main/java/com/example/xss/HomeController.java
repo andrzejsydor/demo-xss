@@ -51,4 +51,10 @@ class HomeController {
         postRepository.deleteById(id);
         return "redirect:/index";
     }
+
+    @GetMapping("/deleteAll")
+    String deleteAll() {
+        postRepository.deleteAll();
+        return "redirect:/index";
+    }
 }
