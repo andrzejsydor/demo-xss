@@ -1,6 +1,6 @@
 # demo-xss
 
-https://hub.docker.com/repository/docker/dockerworkshopsydor/demo-xss
+https://hub.docker.com/repository/docker/andrzejsydor/demo-xss
 
 docker.io/andrzejsydor/demo-xss
 
