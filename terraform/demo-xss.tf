@@ -15,5 +15,5 @@ resource "docker_container" "demo-xss" {
 }
 
 resource "docker_image" "demo-xss" {
-  name = "dockerworkshopsydor/demo-xss:latest"
+  name = "andrzejsydor/demo-xss:latest"
 }
