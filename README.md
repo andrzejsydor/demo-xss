@@ -14,6 +14,11 @@ docker pull andrzejsydor/demo-xss
 docker run -p 8080:8080 andrzejsydor/demo-xss
 ```
 
+# Maintenance and Upgrades
+
+`mvn -N io.takari:maven:wrapper -Dmaven=3.9.6`
+
 # Others
 
 [http://<elb>.amazonaws.com:8080/](http://<elb>.amazonaws.com:8080/)
+
